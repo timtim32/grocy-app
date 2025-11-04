@@ -27,6 +27,17 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddDbContext<AppDbContext>(opt =>
     opt.UseSqlite("Data Source=grocy.db"));
 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
+
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -34,6 +45,7 @@ builder.Services.AddSignalR();
 
 var app = builder.Build();
 
+app.UseCors("AllowFrontend");
 app.UseAuthentication();
 app.UseAuthorization();
 app.UseSwagger();
