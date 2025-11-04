@@ -1,0 +1,6 @@
+@GrocyApi_HostAddress = http://localhost:5076
+
+GET {{GrocyApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
