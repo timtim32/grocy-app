@@ -38,7 +38,7 @@ export default function Register() {
     return (
         <div className="flex h-screen w-screen bg-amber-400 overflow-hidden">
             <div
-                className={`m-auto flex flex-col items-center bg-white rounded-2xl shadow-lg p-8 w-80 transform transition-all duration-700 ease-out ${
+                className={`m-auto flex flex-col items-center bg-white rounded-2xl shadow-lg px-12 py-8 w-full max-w-2xl transform transition-all duration-700 ease-out ${
                     show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
             >

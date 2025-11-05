@@ -17,7 +17,7 @@ export default function Login() {
         try {
             const res = await api.post("/Auth/login", { email, password });
             localStorage.setItem("token", res.data.token);
-            window.location.href = "/";
+            window.location.href = "/ShoppingLists";
         } catch {
             setError("Ongeldig e-mailadres of wachtwoord");
         }
@@ -26,7 +26,7 @@ export default function Login() {
     return (
         <div className="flex h-screen w-screen bg-amber-400 overflow-hidden">
             <div
-                className={`m-auto flex flex-col items-center bg-white rounded-2xl shadow-lg p-8 w-80 transform transition-all duration-700 ease-out ${
+                className={`m-auto flex flex-col items-center bg-white rounded-2xl shadow-lg px-8 py-8 w-full max-w-2xl transform transition-all duration-700 ease-out ${
                     show ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
             >
